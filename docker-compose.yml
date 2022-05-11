@@ -1,0 +1,51 @@
+version: "3.7"
+services:
+  php:
+    container_name: pip_boy
+    image: thecodingmachine/php:8.1-v4-fpm-node16
+    ports:
+      - "9000:9000"
+    tty: true
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - PHP_INI_MEMORY_LIMIT=4G
+    working_dir: /var/www/html
+    networks:
+      - pip-boy-network
+
+  nginx:
+    container_name: pip_boy_nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - pip-boy-network
+
+  mysql:
+    container_name: pip_boy_maria
+    image: bitnami/mariadb:latest
+    ports:
+      - "3306:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=pip-boy
+      - MARIADB_USER=pip-boy
+      - MARIADB_PASSWORD=root
+      - BITNAMI_DEBUG=true
+    restart: on-failure
+    volumes:
+      - pip-boy-datavolume:/var/lib/mysql
+    networks:
+      - pip-boy-network
+
+networks:
+  pip-boy-network:
+    driver: bridge
+
+volumes:
+  pip-boy-datavolume:

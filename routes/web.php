@@ -16,3 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/stats', function () {
+    return view('stats');
+})->name('stats');
+
+Route::get('/inventory', function () {
+    return view('inventory');
+})->name('inventory');
+
+Route::get('/data', function () {
+    return view('data');
+})->name('data');
+
+Route::get('/map', function () {
+    return view('map');
+})->name('map');
+
+Route::get('/radio', function () {
+    return view('radio');
+})->name('radio');

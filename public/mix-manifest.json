@@ -1,5 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/global.css": "/css/global.css",
+    "/css/map.css": "/css/map.css",
+    "/css/inventory.css": "/css/inventory.css",
+    "/css/data.css": "/css/data.css",
+    "/css/stats.css": "/css/stats.css",
     "/css/app.css": "/css/app.css",
-    "/css/index.css": "/css/index.css"
+    "/css/radio.css": "/css/radio.css"
 }

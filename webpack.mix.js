@@ -12,7 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/scss/index.scss', 'public/css')
+    .sass('resources/scss/stats.scss', 'public/css')
+    .sass('resources/scss/global.scss', 'public/css')
+    .sass('resources/scss/data.scss', 'public/css')
+    .sass('resources/scss/inventory.scss', 'public/css')
+    .sass('resources/scss/map.scss', 'public/css')
+    .sass('resources/scss/radio.scss', 'public/css')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);

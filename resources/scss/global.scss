@@ -1,0 +1,226 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+
+::-moz-selection {
+    background: lightgreen;
+}
+
+::selection {
+    background: lightgreen;
+}
+
+body {
+    background: #111;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 7pt;
+    color: #d8c99e;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 20px;
+    background: #000;
+    padding: 5px 5px 5px 0;;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.screen-reflection {
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    margin: 9px 10px 10px 10px;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.scan {
+    width: 100%;
+    height: 130%;
+    background: linear-gradient(rgba(0, 0, 0, 0), #7ff12a);
+    position: absolute;
+    animation: scan;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    top: -85px;
+    z-index: 99;
+    opacity: 0.25;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #8df776;
+}
+
+nav {
+    height: 5vw;
+    width: 100%;
+    position: absolute;
+    top: 2vh;
+    left: 0;
+    border-top-right-radius: 20px;
+    z-index: 101;
+    border-top-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+nav span {
+    color: #8df776;
+    line-height: 31px;
+    font-size: 4vw;
+    letter-spacing: 1px;
+    margin: 0 3vw;
+    font-weight: 300;
+    height: 100%;
+    z-index: 102;
+    background: transparent;
+}
+
+.nav-top-row {
+    height: 100%;
+    display: flex;
+    align-items: end;
+    margin-bottom: 1rem;
+    padding: 1rem 0 0 0;
+    justify-content: space-between;
+
+    span {
+        height: 100%;
+    }
+}
+
+nav .active {
+    background: transparent;
+    border-top: 1px solid #8df776;
+    border-right: 1px solid #8df776;
+    border-left: 1px solid #8df776;
+    border-bottom: 2px solid #000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 20px 6px 3px 6px;
+    margin-bottom: -2px;
+}
+
+.nav-bottom-row {
+    .off {
+        color: #172f18;
+        position: relative;
+        left: -5px;
+    }
+
+    .off-darker {
+        color: #0a110a;
+        position: relative;
+        left: -5px;
+    }
+}
+
+@media (max-width: 1450px) {
+    nav {
+        top: 1vh;
+
+        .active {
+            padding: 12px 6px 3px 6px;
+        }
+    }
+
+    .info-bar span p {
+        margin-top: 1.5rem;
+        margin-left: -8px;
+    }
+
+    .aim, .shield, .voltage, .nuclear {
+        background-position: 20px 0px;
+    }
+
+    .supplies {
+        span {
+            padding: 0px 48px
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+
+}
+
+@media (max-width: 991px) {
+    nav .active {
+        padding: 8px 6px 3px 6px;
+    }
+}
+
+@media (max-width: 916px) {
+    nav .active {
+        padding: 8px 6px 3px 6px;
+    }
+}
+
+@media (max-width: 850px) {
+    nav {
+        span {
+            padding-bottom: 3px;
+        }
+
+        .active {
+            padding: 0px 6px 3px 6px;
+            margin-bottom: -2px;
+        }
+    }
+
+    .nav-top-row {
+        margin: 0;
+    }
+}
+
+
+
+@keyframes flicker {
+    0% {
+        box-shadow: 0px 0px 5px 0px red;
+    }
+    5% {
+        box-shadow: 0px 0px 30px 2px red;
+    }
+    60% {
+        box-shadow: 0px 0px 30px 2px red;
+    }
+    80% {
+        box-shadow: 0px 0px 10px 0px orange;
+    }
+    90% {
+        box-shadow: 0px 0px 30px 2px red;
+    }
+    100% {
+        box-shadow: 0px 0px 0px 0px red;
+    }
+}
+
+@keyframes meter {
+    0% {
+        transform: rotate(30deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes scan {
+    0% {
+        top: -80px;
+    }
+    70% {
+        top: 300px;
+    }
+    100% {
+        top: 300px;
+    }
+}

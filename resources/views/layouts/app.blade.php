@@ -15,6 +15,12 @@
 </head>
 <body>
 
+<div id="rotate_message">
+    <div class="screen-reflection"></div>
+    <div class="scan"></div>
+    {{__('Please rotate your phone')}}
+</div>
+
 <div class="container">
     <main>
         {{ $slot }}

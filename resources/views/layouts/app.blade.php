@@ -7,11 +7,22 @@
     <title>Pip Boy</title>
 
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/global.css') }}" rel="stylesheet">
+    @livewireStyles
+    @stack('styles')
+
 
 </head>
 <body>
-<div class="container">
 
+<div class="container">
+    <main>
+        {{ $slot }}
+    </main>
 </div>
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+@livewireScripts
+@stack('scripts')
+
 </body>
 </html>

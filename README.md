@@ -28,6 +28,7 @@ Some vague descriptions for all items.
 
 - Notifications on demand
 - Pop up with possible solutions (1/4)
-
+- Make full screen
+- Make page changes without reloading
 
 

@@ -160,7 +160,7 @@
     background: linear-gradient(90deg, lightgreen 50%, #000 50%);
 }
 
-.special-subpage-holder {
+.special-subpage-holder, .perks-subpage-holder {
     width: 100vw;
     height: 70vh;
     display: flex;
@@ -168,7 +168,7 @@
     justify-content: space-between;
 }
 
-.special-left {
+.special-left, .perks-left {
     margin-top: 10px;
     width: 45vw;
     display: flex;
@@ -177,7 +177,7 @@
     justify-content: flex-start;
 }
 
-.special-left-row {
+.special-left-row, .perks-left-row {
     width: 45vw;
     display: flex;
     flex-direction: row;
@@ -194,7 +194,7 @@
     }
 }
 
-.special-right, .special-gif-card {
+.special-right, .special-gif-card, .perks-right, .perks-gif-card {
     width: 45vw;
     display: flex;
     flex-direction: column;
@@ -203,13 +203,13 @@
     margin-right: 10px;
 }
 
-.special-right-gif {
+.special-right-gif, .perks-right-gif {
     width: 270px;
     height: 200px;
     font-weight: bold;
 }
 
-.special-right-text {
+.special-right-text, .perks-right-text {
     color: #8df776;
     font-size: 2.5vw;
 }
@@ -248,11 +248,11 @@
         height: 4vh;
     }
 
-    .special-subpage-holder {
+    .special-subpage-holder, .perks-subpage-holder {
         height: 75vh;
     }
 
-    .special-left-row {
+    .special-left-row, .perks-left-row {
         font-size: 4.5vw;
     }
 }
@@ -272,7 +272,7 @@
         width: 15vw;
     }
 
-    .special-right-gif {
+    .special-right-gif, .perks-right-gif {
         img {
             width: 200px;
         }
@@ -310,11 +310,11 @@
         height: 50vh;
     }
 
-    .special-left-row {
+    .special-left-row, .perks-left-row {
         font-size: 2.5vw;
     }
 
-    .special-right-text {
+    .special-right-text, .perks-right-text {
         color: #8df776;
         font-size: 1.5vw;
     }

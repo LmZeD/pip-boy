@@ -92,7 +92,7 @@
         <div class="special-right">
             <div id="special_strength" class="special-gif-card">
                 <div class="special-right-gif">
-                    <img src="{{ asset('images/gifs/strength.gif') }}" alt="">
+                    <img src="{{ asset('images/gifs/special/strength.gif') }}" alt="">
                 </div>
                 <div class="special-right-text">
                     {{__('Strength is a measure of your raw physical power. It affects how much you can carry and the damage of all melee attacks')}}
@@ -100,7 +100,7 @@
             </div>
             <div id="special_perception" style="display: none;" class="special-gif-card">
                 <div class="special-right-gif">
-                    <img src="{{ asset('images/gifs/perception.gif') }}" alt="">
+                    <img src="{{ asset('images/gifs/special/perception.gif') }}" alt="">
                 </div>
                 <div class="special-right-text">
                     {{__('Perception is your environmental awareness and "sixth sense." It affects your weapon accuracy in V.A.T.S.')}}
@@ -108,7 +108,7 @@
             </div>
             <div id="special_endurance" style="display: none;" class="special-gif-card">
                 <div class="special-right-gif">
-                    <img src="{{ asset('images/gifs/endurance.gif') }}" alt="">
+                    <img src="{{ asset('images/gifs/special/endurance.gif') }}" alt="">
                 </div>
                 <div class="special-right-text">
                     {{__('Endurance is a measure of your overall fitness. It affects your total Health and the Action point drain from sprinting.')}}
@@ -116,7 +116,7 @@
             </div>
             <div id="special_charisma" style="display: none;" class="special-gif-card">
                 <div class="special-right-gif">
-                    <img src="{{ asset('images/gifs/charisma.gif') }}" alt="">
+                    <img src="{{ asset('images/gifs/special/charisma.gif') }}" alt="">
                 </div>
                 <div class="special-right-text">
                     {{__('Charisma is your ability to charm and convince others. It affects your success to persuade and prices when you barter.')}}
@@ -124,7 +124,7 @@
             </div>
             <div id="special_intelligence" style="display: none;" class="special-gif-card">
                 <div class="special-right-gif">
-                    <img src="{{ asset('images/gifs/intelligence.gif') }}" alt="">
+                    <img src="{{ asset('images/gifs/special/intelligence.gif') }}" alt="">
                 </div>
                 <div class="special-right-text">
                     {{__('Intelligence is a measure of your overall mental acuity and affects the number of Experience Points gained')}}
@@ -132,7 +132,7 @@
             </div>
             <div id="special_agility" style="display: none;" class="special-gif-card">
                 <div class="special-right-gif">
-                    <img src="{{ asset('images/gifs/agility.gif') }}" alt="">
+                    <img src="{{ asset('images/gifs/special/agility.gif') }}" alt="">
                 </div>
                 <div class="special-right-text">
                     {{__('Agility is measure of your overall finesse and reflexes. It affects the number of Action Points in V.A.T.S. and your ability to sneak.')}}
@@ -140,7 +140,7 @@
             </div>
             <div id="special_luck" style="display: none;" class="special-gif-card">
                 <div class="special-right-gif">
-                    <img src="{{ asset('images/gifs/luck.gif') }}" alt="">
+                    <img src="{{ asset('images/gifs/special/luck.gif') }}" alt="">
                 </div>
                 <div class="special-right-text">
                     {{__('Luck is a measure of your general good fortune and affects the recharge rate of Critical Hits.')}}
@@ -164,11 +164,69 @@
         </div>
     </div>
 
-    <div class="livewire-holder" id="perks_subpage" style="display: none;">
+    <div class="livewire-holder perks-subpage-holder" id="perks_subpage" style="display: none;">
+        <div class="perks-left">
+            <div class="perks-left-row perks-left-row__active" onclick="makePerkslRowActive(this, 'perks_lovers_embrace')">
+                <span>{{__('Lovers Embrace')}}</span>
+            </div>
+            <div class="perks-left-row" onclick="makePerkslRowActive(this, 'perks_close_to_metal')">
+                <span>{{__('Close To Metal')}}</span>
+            </div>
+        </div>
 
+        <div class="perks-right">
+            <div id="perks_lovers_embrace" class="perks-gif-card">
+                <div class="perks-right-gif">
+                    <img src="{{ asset('images/gifs/perks/lovers-embrace.gif') }}" alt="">
+                </div>
+                <div class="perks-right-text">
+                    {{__('+15% Experience Points for 8 hours')}}
+                </div>
+            </div>
+            <div id="perks_close_to_metal" class="perks-gif-card" style="display: none;">
+                <div class="perks-right-gif">
+                    <img src="{{ asset('images/gifs/perks/close-to-metal.gif') }}" alt="">
+                </div>
+                <div class="perks-right-text">
+                    {{__('Thanks to your relationship with Nick Valentine, you get one extra guess and 50 percent faster terminal cooldown when hacking.')}}
+                </div>
+            </div>
+        </div>
+
+        <div class="hud-holder">
+            <div class="hud-bar">
+                <div class="hp">
+                    {{__('HP')}} {{$hp ?? '365/365'}}
+                </div>
+                <div class="exp">
+                    {{__('Level')}} {{$level ?? '26'}}
+                    <span class="xp-bar"></span>
+                </div>
+                <div class="ap">
+                    {{__('AP')}} {{$ap ?? '100/100'}}
+                </div>
+            </div>
+        </div>
     </div>
     @push('scripts')
         <script>
+            function makePerkslRowActive(element, gifCardId)
+            {
+                var specialRows = document.getElementsByClassName('perks-left-row');
+                for (var i = 0; i < specialRows.length; i++) {
+                    specialRows.item(i).classList.remove('perks-left-row__active');
+                }
+
+                element.classList.add('perks-left-row__active');
+
+                var gifCards = document.getElementsByClassName('perks-gif-card');
+                for (var i = 0; i < gifCards.length; i++) {
+                    gifCards.item(i).style = 'display: none;';
+                }
+
+                document.getElementById(gifCardId).style= '';
+            }
+
             function makeSpecialRowActive(element, gifCardId)
             {
                 var specialRows = document.getElementsByClassName('special-left-row');

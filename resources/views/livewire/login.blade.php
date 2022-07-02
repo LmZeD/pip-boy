@@ -15,19 +15,33 @@
 
     <div class="login-screen hidden" id="login_screen">
         <div class="form-holder">
-            <input class="username-input" wire:model="username" type="text" placeholder="{{__('Input your name here')}}">
-            <button class="login-button" wire:click="registerOrLogin()">{{__('LAUNCH')}}</button>
+            <form wire:submit.prevent="registerOrLogin">
+                <input class="username-input" wire:model.lazy="username" type="text" placeholder="{{__('Input your name here')}}">
+                <button class="login-button" type="submit">{{__('LAUNCH')}}</button>
+            </form>
         </div>
     </div>
 
     @push('scripts')
         <script>
+            var isRunning = false;
             var loadedScreen = document.getElementById('loaded_text');
-            generateLoadedScreen();
+
+            window.addEventListener("orientationchange", function(isRunning) {
+                if(window.innerHeight < window.innerWidth && !isRunning){
+                    generateLoadedScreen();
+                    isRunning = true;
+                }
+            }, false);
+
+            if(window.innerHeight < window.innerWidth && !isRunning){
+                generateLoadedScreen();
+                isRunning = true;
+            }
 
             function generateLoadedScreen() {
                 var timeoutStart = 9000;
-                drawLine('^^^^^^^^^^^^^^^^^ PIP-OS(R) V7.1.0.8 ^^^^^^^^^^^^^^^^^^', timeoutStart)
+                drawLine('^^^^^^^^^^^^^^^^ PIP-OS(R) V7.1.0.8 ^^^^^^^^^^^^^^^^^', timeoutStart)
 
                 timeoutStart = 12000;
 

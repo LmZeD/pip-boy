@@ -29,6 +29,6 @@ class Login extends Component
 
         Auth::login($user, true);
 
-        return $this->redirect(route('pip-boy'));
+        return redirect(route('pip-boy'));
     }
 }

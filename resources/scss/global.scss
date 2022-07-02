@@ -17,6 +17,10 @@
     }
 }
 
+.hidden {
+    display: none!important;
+}
+
 .livewire-holder {
     display: flex;
     flex-direction: column;

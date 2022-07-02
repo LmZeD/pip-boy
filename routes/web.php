@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Livewire\PipBoy::class);
+Route::get('/', \App\Http\Livewire\PipBoy::class)->middleware(['auth'])->name('pip-boy');
+
+Route::get('/login', \App\Http\Livewire\Login::class)->name('login');

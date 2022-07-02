@@ -166,10 +166,10 @@
 
     <div class="livewire-holder perks-subpage-holder" id="perks_subpage" style="display: none;">
         <div class="perks-left">
-            <div class="perks-left-row perks-left-row__active" onclick="makePerkslRowActive(this, 'perks_lovers_embrace')">
+            <div class="perks-left-row perks-left-row__active" onclick="makePerksRowActive(this, 'perks_lovers_embrace')">
                 <span>{{__('Lovers Embrace')}}</span>
             </div>
-            <div class="perks-left-row" onclick="makePerkslRowActive(this, 'perks_close_to_metal')">
+            <div class="perks-left-row" onclick="makePerksRowActive(this, 'perks_close_to_metal')">
                 <span>{{__('Close To Metal')}}</span>
             </div>
         </div>
@@ -210,7 +210,7 @@
     </div>
     @push('scripts')
         <script>
-            function makePerkslRowActive(element, gifCardId)
+            function makePerksRowActive(element, gifCardId)
             {
                 var specialRows = document.getElementsByClassName('perks-left-row');
                 for (var i = 0; i < specialRows.length; i++) {

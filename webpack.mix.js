@@ -18,6 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/scss/inventory.scss', 'public/css')
     .sass('resources/scss/map.scss', 'public/css')
     .sass('resources/scss/radio.scss', 'public/css')
+    .sass('resources/scss/login.scss', 'public/css')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
+use App\Services\Quests\GettingStartedQuestService;
 use Livewire\Component;
 
 class PipBoy extends Component
@@ -23,6 +25,8 @@ class PipBoy extends Component
 
     public function render()
     {
+        (new GettingStartedQuestService(auth()->user()->id))->finishLogInToPipBoy();
+
         return view('livewire.pip-boy', [
             'page' => $this->page
         ]);

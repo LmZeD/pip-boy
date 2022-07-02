@@ -1,0 +1,116 @@
+body {
+    color: lightgreen;
+    font-size: 2vw;
+}
+
+.screen {
+    text-align: left;
+}
+
+.boot-screen {
+    width: 90vw;
+    word-wrap: anywhere;
+    margin-top: 0;
+    transform: translateY(100%);
+    animation: scroll-up 8s linear 1s normal none running;
+}
+
+.loaded-draw {
+    text-align: left;
+    width: 90vw;
+    margin-top: 5vh;
+    height: 100vh;
+    letter-spacing: 5px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    div {
+        display: flex;
+        &:last-child {
+            &:after {
+                content: '';
+                display: inline-block;
+                background: lightgreen;
+                width: 1vw;
+                height: 2vw;
+            }
+        }
+    }
+}
+
+br {
+    &:after {
+        display: none;
+    }
+}
+
+.login-screen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 102;
+}
+
+.fade-in {
+    animation: fadein 8s;
+}
+
+.login-button {
+    color: #000;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20vw;
+    border-radius: 5px;
+    margin-top: 15px;
+    background: #78e461;
+    border: #78e461;
+    width: 100%;
+}
+
+.username-input {
+    color: #000;
+    font-weight: bold;
+    padding: 10px 15vw;
+    text-align: center;
+}
+
+.form-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes marker {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(30%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}

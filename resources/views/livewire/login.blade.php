@@ -29,7 +29,7 @@
 
             //trigger on landscape
             window.addEventListener("orientationchange", function() {
-                if(window.innerHeight > window.innerWidth && !isRunning){
+                if(!isRunning){
                     generateLoadedScreen();
                     isRunning = true;
 

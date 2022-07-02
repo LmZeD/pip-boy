@@ -1,9 +1,9 @@
-<div class="screen">
+<div class="screen" id="main_login_screen">
     @push('styles')
         <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     @endpush
 
-    <p class="boot-screen" id="boot_screen"></p>
+{{--    <p class="boot-screen" id="boot_screen"></p>--}}
     <div class="screen-reflection"></div>
     <div class="scan"></div>
 
@@ -27,19 +27,40 @@
             var isRunning = false;
             var loadedScreen = document.getElementById('loaded_text');
 
-            window.addEventListener("orientationchange", function(isRunning) {
-                if(window.innerHeight < window.innerWidth && !isRunning){
+            //trigger on landscape
+            window.addEventListener("orientationchange", function() {
+                if(window.innerHeight > window.innerWidth && !isRunning){
                     generateLoadedScreen();
                     isRunning = true;
+
+                    var bootScreen = document.getElementById('boot_screen');
+                    bootScreen.innerText = generateBootScreen();
+                    setTimeout(function () {
+                        bootScreen.style.display = 'none';
+                    }, 8000);
+
                 }
-            }, false);
+            }, isRunning);
 
             if(window.innerHeight < window.innerWidth && !isRunning){
                 generateLoadedScreen();
+                var bootScreen = document.getElementById('boot_screen');
+                bootScreen.innerText = generateBootScreen();
+                setTimeout(function () {
+                    bootScreen.style.display = 'none';
+                }, 8000);
+
                 isRunning = true;
             }
+            //end trigger on landscape
 
             function generateLoadedScreen() {
+                var mainScreen = document.getElementById('main_login_screen')
+                var p = document.createElement('p');
+                var child = mainScreen.appendChild(p);
+                child.classList.add('boot-screen');
+                child.id = 'boot_screen';
+
                 var timeoutStart = 9000;
                 drawLine('^^^^^^^^^^^^^^^^ PIP-OS(R) V7.1.0.8 ^^^^^^^^^^^^^^^^^', timeoutStart)
 
@@ -116,14 +137,6 @@
                     }, timeoutStart, line, i, child);
                 }
             }
-
-
-            var bootScreen = document.getElementById('boot_screen');
-            bootScreen.innerText = generateBootScreen();
-            setTimeout(function () {
-                bootScreen.style.display = 'none';
-            }, 8000);
-
 
             function generateBootScreen() {
                 var text = '';

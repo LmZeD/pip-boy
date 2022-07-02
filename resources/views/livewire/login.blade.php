@@ -62,7 +62,7 @@
                 child.id = 'boot_screen';
 
                 var timeoutStart = 9000;
-                drawLine('^^^^^^^^^^^^^^^^ PIP-OS(R) V7.1.0.8 ^^^^^^^^^^^^^^^^^', timeoutStart)
+                drawLine('^^^^^^^^^^^^^^^ PIP-OS(R) V7.1.0.8 ^^^^^^^^^^^^^^^^', timeoutStart)
 
                 timeoutStart = 12000;
 

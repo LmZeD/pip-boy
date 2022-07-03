@@ -1,4 +1,8 @@
 <div style="{{$page == 'inventory' ?: 'display:none;'}}" id="inventory_screen">
+    @push('styles')
+        <link href="{{ asset('css/inventory.css') }}" rel="stylesheet">
+    @endpush
+
     <nav class="">
         <div class="nav-top-row border-bottom">
             <span class="stat" wire:click="setPage('stats')" onclick="window.location.href = '/?page=stats'">{{__('Stats')}}</span>
@@ -17,38 +21,54 @@
             <span class="hidden special" id="mods_subpage_nav" onclick="showModsSubpage()">{{__('MODS')}}</span>
             <span class="hidden special" id="ammo_subpage_nav" onclick="showAmmoSubpage()">{{__('AMMO')}}</span>
         </div>
-
-        <div class="inventory-holder">
-            <div class="weapons-holder inventory-subpage" id="weapons_subpage">
-                <h1>Weapons</h1>
-            </div>
-
-            <div class="apparel-holder inventory-subpage hidden" id="apparel_subpage">
-                <h1>Apparel</h1>
-            </div>
-
-            <div class="aid-holder inventory-subpage hidden" id="aid_subpage">
-                <h1>Aid</h1>
-            </div>
-
-            <div class="junk-holder inventory-subpage hidden" id="junk_subpage">
-                <h1>Junk</h1>
-            </div>
-
-            <div class="misc-holder inventory-subpage hidden" id="misc_subpage">
-                <h1>Misc</h1>
-            </div>
-
-            <div class="mods-holder inventory-subpage hidden" id="mods_subpage">
-                <h1>Mods</h1>
-            </div>
-
-            <div class="ammo-holder inventory-subpage hidden" id="ammo_subpage">
-                <h1>Ammo</h1>
-            </div>
-        </div>
     </nav>
 
+        <div class="inventory-holder">
+            <div class="inventory-displays-holder">
+                <div class="weapons-holder inventory-subpage" id="weapons_subpage">
+                    @livewire('inventory.item-section', ['items' => $inventoryItems->where('type', 'weapon'), 'itemType' => 'weapon'])
+                </div>
+
+                <div class="apparel-holder inventory-subpage hidden" id="apparel_subpage">
+                    @livewire('inventory.item-section', ['items' => $inventoryItems->where('type', 'apparel'), 'itemType' => 'apparel'])
+                </div>
+
+                <div class="aid-holder inventory-subpage hidden" id="aid_subpage">
+                    @livewire('inventory.item-section', ['items' => $inventoryItems->where('type', 'aid'), 'itemType' => 'aid'])
+                </div>
+
+                <div class="junk-holder inventory-subpage hidden" id="junk_subpage">
+                    @livewire('inventory.item-section', ['items' => $inventoryItems->where('type', 'junk'), 'itemType' => 'junk'])
+                </div>
+
+                <div class="misc-holder inventory-subpage hidden" id="misc_subpage">
+                    @livewire('inventory.item-section', ['items' => $inventoryItems->where('type', 'misc'), 'itemType' => 'misc'])
+                </div>
+
+                <div class="mods-holder inventory-subpage hidden" id="mods_subpage">
+                    @livewire('inventory.item-section', ['items' => $inventoryItems->where('type', 'mods'), 'itemType' => 'mods'])
+                </div>
+
+                <div class="ammo-holder inventory-subpage hidden" id="ammo_subpage">
+                    @livewire('inventory.item-section', ['items' => $inventoryItems->where('type', 'ammo'), 'itemType' => 'ammo'])
+                </div>
+            </div>
+            <div class="inventory-stats-row">
+                <div class="inventory-stats-row__weight-holder">
+                    <img src="{{asset('images/inventory/weight.png')}}" alt="">
+                    {{$weight}}/265
+                </div>
+                <div class="inventory-stats-row__caps-holder">
+                    <img src="{{asset('images/inventory/misc/caps.png')}}" alt="">
+                    {{auth()->user()->getInventoryItemQuantity('caps')}}
+                </div>
+                <div class="inventory-stats-row__ammo-holder">
+                    <img src="{{asset('images/gun.png')}}" alt="">
+                    <img class="target-image" src="{{asset('images/aim.png')}}" alt="">
+                    {{auth()->user()->getInventoryItemQuantity('10mm')}}
+                </div>
+            </div>
+        </div>
     @push('scripts')
         <script>
             var weaponsNav = document.getElementById('weapons_subpage_nav');
@@ -131,7 +151,7 @@
 
                 ammoNav.classList.add('hidden');
 
-                switchSubpage('aid_subpage');
+                switchSubpage('misc_subpage');
             }
 
             function showJunkSubpage()

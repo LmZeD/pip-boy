@@ -38,12 +38,12 @@
             </div>
             <div class="hud-holder">
                 <div class="supplies">
-                    <span>{{__('Stimpak')}} (0)</span>
-                    <span>{{__('Radaway')}} (0)</span>
+                    <span wire:click="useStimpak()">{{__('Stimpak')}} ({{$stimpakCount}})</span>
+                    <span wire:click="useRadaway()">{{__('Radaway')}} ({{$radawayCount}})</span>
                 </div>
                 <div class="hud-bar">
                     <div class="hp">
-                        {{__('HP')}} {{$hp ?? '365/365'}}
+                        {{__('HP')}} {{$hp ?? '365'}} /365
                     </div>
                     <div class="exp">
                         {{__('Level')}} {{$level ?? '26'}}

@@ -13,5 +13,8 @@ class Quest extends Model
         'title',
         'is_finished',
         'asset_url',
+        'latitude',
+        'longitude',
+        'map_icon',
     ];
 }

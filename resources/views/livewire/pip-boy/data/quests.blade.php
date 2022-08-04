@@ -1,6 +1,9 @@
 <div class="quests-holder">
     <div class="quests-left">
         @foreach($quests as $quest)
+            @if(isset($quest['progress']) && !$quest['progress']->is_active && !$quest['progress']->quest_finished)
+                @continue
+            @endif
             @if(!isset($quest['progress']['quest_finished']) || !$quest['progress']['quest_finished'])
                 <div class="quests-left-row @if($quest['id'] == $activeQuest)quests-left-row__active @endif"
                 wire:click="setQuestActive({{$quest['id']}})">
@@ -21,6 +24,9 @@
 
     <div class="quests-right">
         @foreach($quests as $quest)
+            @if(isset($quest['progress']) && !$quest['progress']->is_active && !$quest['progress']->quest_finished)
+                @continue
+            @endif
             <div class="quest-description-holder @if($activeQuest != $quest['id']) hidden @endif" id="{{$quest['title']}}">
                 <div class="quest-image-holder" id="{{$quest['title']}}_image-holder">
                     <img src="{{asset($quest['asset_url'])}}" alt="">

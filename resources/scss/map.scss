@@ -1,0 +1,20 @@
+.map-holder {
+    z-index: 102;
+
+    canvas {
+        width: 100vw;
+        height: 80vh;
+        z-index: 102;
+        margin-top: 20vh;
+    }
+}
+
+.distance-display {
+    position: absolute;
+    color: lightgreen;
+    bottom: 10vh;
+    left: 0;
+    width: 100%;
+    font-size: 4vh;
+    text-align: center;
+}

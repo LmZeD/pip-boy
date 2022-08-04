@@ -19,7 +19,7 @@
         <div class="nav-bottom-row">
             <span class="status" id="quests_subpage_nav" onclick="showQuestsSubpage()">{{__('QUESTS')}}</span>
             <span class="off special" id="workshops_subpage_nav" onclick="showWorkshopsSubpage()">{{__('WORKSHOPS')}}</span>
-            <span class="off-darker special" id="stats_subpage_nav" onclick="showStatsSubpage()">{{__('STATS')}}</span>
+            <span class="off-darker special hidden" id="stats_subpage_nav" onclick="showStatsSubpage()">{{__('STATS')}}</span>
         </div>
     </nav>
 
@@ -29,11 +29,80 @@
         </div>
 
         <div class="workshops-holder inventory-subpage hidden" id="workshops_subpage">
-            <h1>Workshops</h1>
+            <div class="workshops-holder__left">
+                <div class="workshops-holder-left__row workshops-holder-left__active">
+                    Sanctuary Hills
+                </div>
+            </div>
+            <div class="workshops-holder__right">
+                <div class="workshops-holder-right__row">
+                    <div class="workshops-holder-right-row__left">
+{{--                        <img src="{{asset('images/vault-boy.png')}}" alt="">--}}
+                        <span>{{__('People')}}</span>
+                    </div>
+                    <div class="workshops-holder-right-row__right">
+                        8
+                    </div>
+                </div>
+                <div class="workshops-holder-right__row">
+                    <div class="workshops-holder-right-row__left">
+                        <span></span>
+                        <span>{{__('Food')}}</span>
+                    </div>
+                    <div class="workshops-holder-right-row__right">
+                        18
+                    </div>
+                </div>
+                <div class="workshops-holder-right__row">
+                    <div class="workshops-holder-right-row__left">
+                        <span></span>
+                        <span>{{__('Water')}}</span>
+                    </div>
+                    <div class="workshops-holder-right-row__right">
+                        15
+                    </div>
+                </div>
+                <div class="workshops-holder-right__row">
+                    <div class="workshops-holder-right-row__left">
+                        <span></span>
+                        <span>{{__('Power')}}</span>
+                    </div>
+                    <div class="workshops-holder-right-row__right">
+                        13
+                    </div>
+                </div>
+                <div class="workshops-holder-right__row">
+                    <div class="workshops-holder-right-row__left">
+                        <span></span>
+                        <span>{{__('Defence')}}</span>
+                    </div>
+                    <div class="workshops-holder-right-row__right">
+                        33
+                    </div>
+                </div>
+                <div class="workshops-holder-right__row">
+                    <div class="workshops-holder-right-row__left">
+                        <span></span>
+                        <span>{{__('Beds')}}</span>
+                    </div>
+                    <div class="workshops-holder-right-row__right">
+                        24
+                    </div>
+                </div>
+                <div class="workshops-holder-right__row">
+                    <div class="workshops-holder-right-row__left">
+                        <span></span>
+                        <span>{{__('Happiness')}}</span>
+                    </div>
+                    <div class="workshops-holder-right-row__right">
+                        70
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="stats-holder inventory-subpage hidden" id="stats_subpage">
-            <h1>Stats</h1>
+
         </div>
     </div>
 

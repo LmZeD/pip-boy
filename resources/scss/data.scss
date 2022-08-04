@@ -96,3 +96,67 @@
     color: #1d700c;
     font-size: 2.5vw;
 }
+
+.workshops-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 102;
+
+    &__left {
+        width: 60vw;
+    }
+
+    &__right {
+        margin-left: 5vw;
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+}
+
+.workshops-holder-left {
+    &__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2px 10px;
+        color: #8df776;
+        font-size: 2.5vw;
+        margin: 5px 0 0 20px;
+        z-index: 102;
+        text-transform: capitalize;
+    }
+
+    &__active {
+        background: #8df776;
+        color: #000000;
+    }
+}
+
+.workshops-holder-right {
+    &__row {
+        width: 100%;
+        color: #8df776;
+        background: #0b3212;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 2.5vw;
+        margin-top: 2px;
+        text-transform: capitalize;
+    }
+}
+
+.workshops-holder-right-row {
+    &__left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+            height: 2.5vw;
+        }
+    }
+}

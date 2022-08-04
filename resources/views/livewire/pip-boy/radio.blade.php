@@ -1,4 +1,7 @@
 <div style="{{$page == 'radio' ?: 'display:none;'}}" id="radio_screen">
+    @push('styles')
+        <link href="{{ asset('css/radio.css') }}" rel="stylesheet">
+    @endpush
     <nav class="">
         <div class="nav-top-row border-bottom">
             <span class="stat" wire:click="setPage('stats')" onclick="window.location.href = '/?page=stats'">{{__('Stats')}}</span>
@@ -8,4 +11,8 @@
             <span class="active radio" wire:click="setPage('radio')" onclick="window.location.href = '/?page=radio'">{{__('Radio')}}</span>
         </div>
     </nav>
+
+    <div class="radio-holder">
+        Now Is Not The Time For Radio!
+    </div>
 </div>

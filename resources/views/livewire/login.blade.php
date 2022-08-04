@@ -61,58 +61,55 @@
                 child.classList.add('boot-screen');
                 child.id = 'boot_screen';
 
-                var timeoutStart = 9000;
-                drawLine('^^^^^^^^^^^^^^^ PIP-OS(R) V7.1.0.8 ^^^^^^^^^^^^^^^^', timeoutStart)
-
-                timeoutStart = 12000;
-
-                setTimeout(function (timeoutStart) {
-                    timeoutStart += 50;
-                    drawLine('\n', timeoutStart)
-                    timeoutStart += 50;
-                    drawLine('\n', timeoutStart)
-                    timeoutStart += 50;
-                    drawLine('\n', timeoutStart)
-                    timeoutStart += 50;
-                    drawLine('\n', timeoutStart)
-
-                    timeoutStart += 3000;
-
+                setTimeout(function () {
+                    drawLine('^^^^^^^^^^^^^^^ PIP-OS(R) V7.1.0.8 ^^^^^^^^^^^^^^^^', 100)
                     setTimeout(function () {
-                        drawLine('COPYRIGHT 2075 ROBCO(R)', 0)
+                        var timeoutStart = 1000;
+                        timeoutStart += 50;
+                        drawLine('\n', timeoutStart)
+                        timeoutStart += 50;
+                        drawLine('\n', timeoutStart)
+                        timeoutStart += 50;
+                        drawLine('\n', timeoutStart)
+                        timeoutStart += 50;
+                        drawLine('\n', timeoutStart)
 
                         setTimeout(function () {
-                            drawLine('LOADER V1.1', 0)
+                            drawLine('COPYRIGHT 2075 ROBCO(R)', 0)
 
                             setTimeout(function () {
-                                drawLine('EXEC VERSION 41.10', 0)
+                                drawLine('LOADER V1.1', 0)
 
                                 setTimeout(function () {
-                                    drawLine('64k RAM SYSTEM', 0)
+                                    drawLine('EXEC VERSION 41.10', 0)
 
                                     setTimeout(function () {
-                                        drawLine('38911 BYTES FREE', 0)
+                                        drawLine('64k RAM SYSTEM', 0)
 
                                         setTimeout(function () {
-                                            drawLine('NO HOLOTAPE FOUND', 0)
+                                            drawLine('38911 BYTES FREE', 0)
 
                                             setTimeout(function () {
-                                                drawLine('LOAD ROM(1): DEITRIX 303', 0)
+                                                drawLine('NO HOLOTAPE FOUND', 0)
 
                                                 setTimeout(function () {
-                                                    loadedScreen.style.display='none';
-                                                    document.getElementById('login_screen').classList.remove('hidden');
-                                                    document.getElementById('login_screen').classList.add('fade-in');
-                                                    document.getElementById('loaded_holder').classList.remove('loaded-draw');
-                                                }, 5000);
+                                                    drawLine('LOAD ROM(1): DEITRIX 303', 0)
+
+                                                    setTimeout(function () {
+                                                        loadedScreen.style.display='none';
+                                                        document.getElementById('login_screen').classList.remove('hidden');
+                                                        document.getElementById('login_screen').classList.add('fade-in');
+                                                        document.getElementById('loaded_holder').classList.remove('loaded-draw');
+                                                    }, 5000);
+                                                }, 1500)
                                             }, 1500)
                                         }, 1500)
                                     }, 1500)
                                 }, 1500)
                             }, 1500)
                         }, 1500)
-                    }, timeoutStart)
-                }, timeoutStart, timeoutStart)
+                    }, 3000)
+                }, 9000)
             }
 
             function drawLine(line, timeoutStart) {
